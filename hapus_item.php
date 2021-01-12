@@ -1,0 +1,14 @@
+<?php
+
+    session_start();
+    include_once("function/helper.php");
+    include_once("function/koneksi.php");
+
+    $barang_id=$_GET['barang_id'];
+    $keranjang=$_SESSION['keranjang'];
+
+    unset($keranjang[$barang_id]);
+
+    $_SESSION['keranjang'] = $keranjang;
+
+    hdirect(BASE_URL."index.php?page=keranjang");
